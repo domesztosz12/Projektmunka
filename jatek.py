@@ -81,7 +81,7 @@ if hp > 0:
     print(hp, "❤️   hp-d maradt.")
     print(gold, "gold-od lett.")
     print(days, ". napod ért véget.")
-    
+
 # 3. nap: kereskedő
 if hp > 0:
     days = days + 1
@@ -252,4 +252,42 @@ if hp > 0:
             print("Kereskedő: Szia!")
         else:
             print("Kereskedő: Ilyen nincs.")
+    print(days, ". napod ért véget.")
+
+# 7. nap: ogre vagy bánya
+if hp > 0:
+    days = days + 1
+    print("7. nap")
+    print("Balra egy öreg ogre lakik.")
+    print("Jobbra egy bánya van.")
+    valasztas = int(input("Balra vagy jobbra szeretnél menni? Írd be hogy 1 (balra), vagy 2 (jobbra): "))
+    if valasztas == 1:
+        print("Balra mentél!")
+        print("Ogre: Ha kitalálod a rejtvényt, erősebb lesz a kardod.")
+        print("Ogre: Minél többet veszel el belőle, annál nagyobb lesz. Mi az?")
+        valasz = input("A válaszod: ")
+        valasz = valasz.strip().lower()
+        if valasz == "gödör" or valasz == "godor" or valasz == "lyuk":
+            dmg = dmg + 20
+            print("Ogre: Jó válasz! Kaptál 20 dmg-t.")
+        else:
+            hp = hp - 10
+            print("Ogre: Rossz válasz, a gödör volt a jó.")
+            print("Az ogre megdobott egy kővel. -10 hp")
+    elif valasztas == 2:
+        print("Jobbra mentél!")
+        print("Elkezdtél bányászni.")
+        for utes in range(1, 6):
+            if utes == 5:
+                gold = gold + 10
+                print(utes, ". ütés: találtál egy nagy aranyat! +10 arany")
+            else:
+                gold = gold + 4
+                print(utes, ". ütés: +4 arany")
+    else:
+        print("Egy helyben álltál egész nap.")
+    if hp < 0:
+        hp = 0
+    print(hp, "❤️   hp-d maradt.")
+    print(gold, "gold-od lett.")
     print(days, ". napod ért véget.")
