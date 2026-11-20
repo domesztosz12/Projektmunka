@@ -156,4 +156,100 @@ if hp > 0:
         hp = 0
     print(hp, "❤️   hp-d maradt.")
     print(gold, "gold-od lett.")
-    print(days, ". napod ért véget.")   
+    print(days, ". napod ért véget.")
+# 5. nap: troll vagy kocsma
+if hp > 0:
+    days = days + 1
+    print("5. nap")
+    print("Balra egy híd van, amit egy troll őriz.")
+    print("Jobbra egy kocsma van.")
+    valasztas = int(input("Balra vagy jobbra szeretnél menni? Írd be hogy 1 (balra), vagy 2 (jobbra): "))
+    if valasztas == 1:
+        print("Balra mentél!")
+        print("A troll nem enged át, harcolnod kell vele!")
+        troll_hp = 120
+        troll_dmg = 8
+        utesek = 0
+        while troll_hp > 0 and hp > 0:
+            utesek = utesek + 1
+            troll_hp = troll_hp - dmg
+            if troll_hp < 0:
+                troll_hp = 0
+            print(utesek, ". ütés:", dmg, "sebzés -> troll hp:", troll_hp)
+            if troll_hp > 0:
+                sebzes = round(troll_dmg / pancel)
+                hp = hp - sebzes
+                if hp < 0:
+                    hp = 0
+                print("A troll visszaütött:", sebzes, "sebzés -> hp-d:", hp)
+        if hp > 0:
+            gold = gold + 50
+            print("Megölted a trollt! Kaptál 50 aranyat!")
+        else:
+            print("A troll megölt...")
+    elif valasztas == 2:
+        print("Jobbra mentél!")
+        print("Kő papír ollóztál egy kalózzal.")
+        if gold < 10:
+            print("Nincs pénzed, nem kő papír ollózhatsz.")
+        elif (gold + hp) % 2 == 0:
+            gold = gold + 20
+            print("Nyertél 20 aranyat!")
+        else:
+            gold = gold - 10
+            print("Vesztettél 10 aranyat.")
+        hp = hp + 10
+        if hp > max_hp:
+            hp = max_hp
+        print("Pihentél is egy kicsit, kaptál 10 hp-t.")
+    else:
+        print("Egy helyben álltál egész nap.")
+    if hp < 0:
+        hp = 0
+    print(hp, "❤️   hp-d maradt.")
+    print(gold, "gold-od lett.")
+    print(days, ". napod ért véget.")
+
+# 6. nap: kereskedő
+if hp > 0:
+    days = days + 1
+    print("6. nap")
+    print("Megint jött a kereskedő.")
+    print("Kereskedő: Szia! Mit szeretnél venni?")
+    vasarlas = 0
+    while vasarlas != 4:
+        print("")
+        print("Aranyad:", gold, "| hp:", hp, "/", max_hp, "| dmg:", dmg, "| páncél:", pancel)
+        print("1 - Jobb kard (+25 dmg)  30 arany")
+        print("2 - Jobb páncél (+0.5 páncél)  30 arany")
+        print("3 - Gyógyital (+40 hp)  15 arany")
+        print("4 - Továbbállok")
+        vasarlas = int(input("Mit szeretnél venni? "))
+        if vasarlas == 1:
+            if gold >= 30:
+                gold = gold - 30
+                dmg = dmg + 25
+                print("Megvetted a kardot! A dmg-ed most", dmg)
+            else:
+                print("Kereskedő: Nincs elég aranyad.")
+        elif vasarlas == 2:
+            if gold >= 30:
+                gold = gold - 30
+                pancel = pancel + 0.5
+                print("Megvetted a páncélt! A páncélod most", pancel)
+            else:
+                print("Kereskedő: Nincs elég aranyad.")
+        elif vasarlas == 3:
+            if gold >= 15:
+                gold = gold - 15
+                hp = hp + 40
+                if hp > max_hp:
+                    hp = max_hp
+                print("Megittad a gyógyitalt! A hp-d most", hp)
+            else:
+                print("Kereskedő: Nincs elég aranyad.")
+        elif vasarlas == 4:
+            print("Kereskedő: Szia!")
+        else:
+            print("Kereskedő: Ilyen nincs.")
+    print(days, ". napod ért véget.")
