@@ -29,6 +29,7 @@ print("- Jó játékot!")
 # 1. nap: goblin vagy arany
 if hp > 0:
     days = days + 1
+    print("")
     print("1. nap")
     print("Balra egy buta goblin szeretne harcolni veled.")
     print("Jobbra pedig találsz 10 aranyat egy szénabálába eldugva.")
@@ -62,6 +63,7 @@ if hp > 0:
 # 2. nap: kard vagy pajzs
 if hp > 0:
     days = days + 1
+    print("")
     print("2. nap")
     print("Balra láttál egy kardot, ami megnöveli a dmg-ed.")
     print("Jobbra láttál egy pajzsot, ami megnöveli a shielded.")
@@ -85,6 +87,7 @@ if hp > 0:
 # 3. nap: kereskedő
 if hp > 0:
     days = days + 1
+    print("")
     print("3. nap")
     print("Találkoztál egy kereskedővel.")
     print("Kereskedő: Szia! Mit szeretnél venni?")
@@ -128,6 +131,7 @@ if hp > 0:
 # 4. nap: mocsár vagy forrás
 if hp > 0:
     days = days + 1
+    print("")
     print("4. nap")
     print("Balra egy mocsár van, lehet hogy van benne kincs.")
     print("Jobbra egy forrás van.")
@@ -161,6 +165,7 @@ if hp > 0:
 # 5. nap: troll vagy kocsma
 if hp > 0:
     days = days + 1
+    print("")
     print("5. nap")
     print("Balra egy híd van, amit egy troll őriz.")
     print("Jobbra egy kocsma van.")
@@ -214,6 +219,7 @@ if hp > 0:
 # 6. nap: kereskedő
 if hp > 0:
     days = days + 1
+    print("")
     print("6. nap")
     print("Megint jött a kereskedő.")
     print("Kereskedő: Szia! Mit szeretnél venni?")
@@ -258,6 +264,7 @@ if hp > 0:
 # 7. nap: ogre vagy bánya
 if hp > 0:
     days = days + 1
+    print("")
     print("7. nap")
     print("Balra egy öreg ogre lakik.")
     print("Jobbra egy bánya van.")
@@ -296,6 +303,7 @@ if hp > 0:
     # 8. nap: buta goblin vezér vagy íjászok
 if hp > 0:
     days = days + 1
+    print("")
     print("8. nap")
     print("Balra van a buta goblinoknak a vezére.")
     print("Jobbra vannak az íjászok.")
@@ -339,6 +347,7 @@ if hp > 0:
 # 9. nap: kereskedő
 if hp > 0:
     days = days + 1
+    print("")
     print("9. nap")
     print("Utoljára jött a kereskedő a sárkány előtt.")
     print("Kereskedő: Szia! Mit szeretnél venni?")
@@ -383,6 +392,7 @@ if hp > 0:
     # 10. nap: sárkány
 if hp > 0:
     days = days + 1
+    print("")
     print("10. nap")
     print("Az ég fekete lett.. megérkezett a buta sárkány!")
     print("A sárkány hp-ja:", sarkany_hp)
@@ -408,7 +418,7 @@ if hp > 0:
             hp = hp - sebzes
             if hp < 0:
                 hp = 0
-            print("   A sárkány visszaütött:", sebzes, "sebzés -> hp-d:", hp)
+            print("A sárkány visszaütött:", sebzes, "sebzés -> hp-d:", hp)
 # Játék vége
 if hp <= 0:
     print("Meghaltál...")
