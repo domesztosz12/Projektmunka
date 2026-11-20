@@ -81,3 +81,79 @@ if hp > 0:
     print(hp, "❤️   hp-d maradt.")
     print(gold, "gold-od lett.")
     print(days, ". napod ért véget.")
+    
+# 3. nap: kereskedő
+if hp > 0:
+    days = days + 1
+    print("3. nap")
+    print("Találkoztál egy kereskedővel.")
+    print("Kereskedő: Szia! Mit szeretnél venni?")
+    vasarlas = 0
+    while vasarlas != 4:
+        print("Aranyad:", gold, "| hp:", hp, "/", max_hp, "| dmg:", dmg, "| páncél:", pancel)
+        print("1 - Jobb kard (+25 dmg)  30 arany")
+        print("2 - Jobb páncél (+0.5 páncél)  30 arany")
+        print("3 - Gyógyital (+40 hp)  15 arany")
+        print("4 - Továbbállok")
+        vasarlas = int(input("Mit szeretnél venni? "))
+        if vasarlas == 1:
+            if gold >= 30:
+                gold = gold - 30
+                dmg = dmg + 25
+                print("Megvetted a kardot! A dmg-ed most", dmg)
+            else:
+                print("Kereskedő: Nincs elég aranyad.")
+        elif vasarlas == 2:
+            if gold >= 30:
+                gold = gold - 30
+                pancel = pancel + 0.5
+                print("Megvetted a páncélt! A páncélod most", pancel)
+            else:
+                print("Kereskedő: Nincs elég aranyad.")
+        elif vasarlas == 3:
+            if gold >= 15:
+                gold = gold - 15
+                hp = hp + 40
+                if hp > max_hp:
+                    hp = max_hp
+                print("Megittad a gyógyitalt! A hp-d most", hp)
+            else:
+                print("Kereskedő: Nincs elég aranyad.")
+        elif vasarlas == 4:
+            print("Kereskedő: Szia!")
+        else:
+            print("Kereskedő: Ilyen nincs.")
+    print(days, ". napod ért véget.")
+
+# 4. nap: mocsár vagy forrás
+if hp > 0:
+    days = days + 1
+    print("4. nap")
+    print("Balra egy mocsár van, lehet hogy van benne kincs.")
+    print("Jobbra egy forrás van.")
+    valasztas = int(input("Balra vagy jobbra szeretnél menni? Írd be hogy 1 (balra), vagy 2 (jobbra): "))
+    if valasztas == 1:
+        print("Balra mentél!")
+        print("Találtál egy ládát, 40 arany volt benne!")
+        print("De megcsípett egy kígyó és megmérgezett!")
+        gold = gold + 40
+        for kor in range(3, 0, -1):
+            mereg = kor * 4
+            hp = hp - mereg
+            if hp < 0:
+                hp = 0
+            print("A méreg sebzett:", mereg, "-> hp-d:", hp)
+        print("Elmúlt a méreg.")
+    elif valasztas == 2:
+        print("Jobbra mentél!")
+        print("Ittál a forrásból, kaptál 20 hp-t!")
+        hp = hp + 20
+        if hp > max_hp:
+            hp = max_hp
+    else:
+        print("Egy helyben álltál egész nap.")
+    if hp < 0:
+        hp = 0
+    print(hp, "❤️   hp-d maradt.")
+    print(gold, "gold-od lett.")
+    print(days, ". napod ért véget.")   
