@@ -379,3 +379,40 @@ if hp > 0:
         else:
             print("Kereskedő: Ilyen nincs.")
     print(days, ". napod ért véget.")
+
+    # 10. nap: sárkány
+if hp > 0:
+    days = days + 1
+    print("10. nap")
+    print("Az ég fekete lett.. megérkezett a buta sárkány!")
+    print("A sárkány hp-ja:", sarkany_hp)
+    input("Nyomj Entert, hogy harcolj vele!")
+    print("A sárkány tüzet köpött rád!")
+    sarkany_dmg = 15
+    for kor in range(1, 4):
+        tuz = round(8 * kor / pancel)
+        hp = hp - tuz
+        if hp < 0:
+            hp = 0
+        print(kor, ". tűz:", tuz, "sebzés -> hp-d:", hp)
+    print("Most te jössz!")
+    utesek = 0
+    while sarkany_hp > 0 and hp > 0:
+        utesek = utesek + 1
+        sarkany_hp = sarkany_hp - dmg
+        if sarkany_hp < 0:
+            sarkany_hp = 0
+        print(utesek, ". ütés:", dmg, "sebzés -> sárkány hp:", sarkany_hp)
+        if sarkany_hp > 0:
+            sebzes = round(sarkany_dmg / pancel)
+            hp = hp - sebzes
+            if hp < 0:
+                hp = 0
+            print("   A sárkány visszaütött:", sebzes, "sebzés -> hp-d:", hp)
+# Játék vége
+if hp <= 0:
+    print("Meghaltál...")
+else:
+    print("Megölted a sárkányt! Megmentetted Dandóriát!")
+    print("Maradék hp:", hp, "| Arany:", gold)
+print("Köszönjük hogy játszottál!")
